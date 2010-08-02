@@ -3,7 +3,7 @@
 %define develname %mklibname -d %name
 
 Name:           folks
-Version:        0.1.11
+Version:        0.1.12
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
@@ -53,7 +53,8 @@ basically automatic.
 %files -n %libname
 %defattr(-,root,root,-)
 %{_libdir}/*.so.%{major}*
-%{_libdir}/folks/backends
+%dir %{_libdir}/folks/11/
+%{_libdir}/folks/11/backends
 
 %files -n %develname
 %defattr(-,root,root,-)
@@ -77,10 +78,3 @@ rm -rf %buildroot
 
 %clean
 rm -rf %buildroot
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
