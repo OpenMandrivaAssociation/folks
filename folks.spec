@@ -1,9 +1,10 @@
 %define major 0
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
+%define dirver 12
 
 Name:           folks
-Version:        0.1.12
+Version:        0.1.13
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
@@ -11,10 +12,11 @@ Group:          Networking/Instant messaging
 License:        LGPLv2+
 URL:            http://telepathy.freedesktop.org/wiki/Folks
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.bz2
+Patch0: folks-0.1.13-new-vala.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:	libtelepathy-glib-devel >= 0.11.11-2
-BuildRequires:	vala-devel
+BuildRequires:	vala-devel >= 0.9.5
 BuildRequires:	vala-tools
 BuildRequires:	libgee-devel
 
@@ -53,8 +55,8 @@ basically automatic.
 %files -n %libname
 %defattr(-,root,root,-)
 %{_libdir}/*.so.%{major}*
-%dir %{_libdir}/folks/11/
-%{_libdir}/folks/11/backends
+%dir %{_libdir}/folks/%dirver/
+%{_libdir}/folks/%dirver/backends
 
 %files -n %develname
 %defattr(-,root,root,-)
@@ -67,6 +69,8 @@ basically automatic.
 
 %prep
 %setup -q
+%apply_patches
+autoconf
 
 %build
 %configure2_5x
