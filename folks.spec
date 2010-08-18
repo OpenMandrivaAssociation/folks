@@ -17,6 +17,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	libtelepathy-glib-devel >= 0.11.11-2
 BuildRequires:	vala-devel > 0.9.5
 BuildRequires:	vala-tools
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	libgee-devel
 
 %description
