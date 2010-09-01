@@ -4,7 +4,7 @@
 %define dirver 13
 
 Name:           folks
-Version:        0.1.15
+Version:        0.1.16
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
