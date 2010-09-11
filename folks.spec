@@ -1,10 +1,10 @@
 %define major 0
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
-%define dirver 13
+%define dirver 14
 
 Name:           folks
-Version:        0.1.16
+Version:        0.1.17
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
@@ -52,6 +52,11 @@ etc.) to create metacontacts. It's written in Vala (in part to evaluate Vala).
 The initial goal is for GObject/C support, though the Vala bindings should
 basically automatic.
 
+%files
+%defattr(-,root,root)
+%doc AUTHORS README
+%_bindir/folks-import
+
 %files -n %libname
 %defattr(-,root,root,-)
 %{_libdir}/*.so.%{major}*
@@ -64,7 +69,7 @@ basically automatic.
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/folks
-
+%_datadir/vala/vapi/folks*
 #--------------------------------------------------------------------
 
 %prep
