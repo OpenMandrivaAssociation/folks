@@ -1,10 +1,10 @@
 %define major 0
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
-%define dirver 14
+%define dirver 15
 
 Name:           folks
-Version:        0.1.17
+Version:        0.2.0
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
@@ -14,10 +14,10 @@ URL:            http://telepathy.freedesktop.org/wiki/Folks
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires:	libtelepathy-glib-devel >= 0.11.11-2
+BuildRequires:	libtelepathy-glib-devel >= 0.11.16
 BuildRequires:	vala-devel > 0.9.5
 BuildRequires:	vala-tools
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	gobject-introspection-devel >= 0.9.6
 BuildRequires:	libgee-devel
 
 %description
