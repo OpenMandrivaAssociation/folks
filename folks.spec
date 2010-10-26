@@ -1,10 +1,10 @@
-%define major 0
+%define major 1
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
-%define dirver 15
+%define dirver 16
 
 Name:           folks
-Version:        0.2.0
+Version:        0.2.1
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
