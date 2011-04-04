@@ -1,10 +1,10 @@
-%define major 1
+%define major 22
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
-%define dirver 16
+%define dirver 22
 
 Name:           folks
-Version:        0.2.1
+Version:        0.4.2
 Release:        %mkrel 1
 Summary:        Aggregates people from multiple sources to create metacontacts
 
@@ -14,7 +14,7 @@ URL:            http://telepathy.freedesktop.org/wiki/Folks
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires:	libtelepathy-glib-devel >= 0.11.16
+BuildRequires:	libtelepathy-glib-devel >= 0.13
 BuildRequires:	vala-devel > 0.9.5
 BuildRequires:	vala-tools
 BuildRequires:	gobject-introspection-devel >= 0.9.6
@@ -27,9 +27,16 @@ etc.) to create metacontacts. It's written in Vala (in part to evaluate Vala).
 The initial goal is for GObject/C support, though the Vala bindings should
 basically automatic.
 
+%package i18n
+Group: System/Internationalization
+Summary: Translations for %name
+%description i18n
+This package contains the translations for %{name}.
+
 %package -n %libname
 Group: System/Libraries
 Summary: Aggregates people from multiple sources to create metacontacts
+Requires: %name-i18n >= %version
 
 %description -n %libname
 libfolks is a library that aggregates people from multiple sources (eg,
@@ -51,6 +58,8 @@ Telepathy connection managers and eventually evolution data server, Facebook,
 etc.) to create metacontacts. It's written in Vala (in part to evaluate Vala).
 The initial goal is for GObject/C support, though the Vala bindings should
 basically automatic.
+
+%files i18n -f %name.lang
 
 %files
 %defattr(-,root,root)
@@ -83,6 +92,7 @@ basically automatic.
 %install
 rm -rf %buildroot
 %makeinstall_std
+%find_lang %name
 
 %clean
 rm -rf %buildroot
