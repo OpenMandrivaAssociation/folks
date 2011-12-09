@@ -1,7 +1,12 @@
-%define major 22
-%define libname %mklibname %{name} %{major}
-%define develname %mklibname -d %{name}
-%define dirver 22
+%define dirver 29
+%define major 25
+%define gir_major 0.6
+
+%define libname		%mklibname %{name} %{major}
+%define girname		%mklibname %{name}-gir %{gir_major}
+%define develname	%mklibname -d %{name}
+
+%define enable_vala 0
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
@@ -12,11 +17,18 @@ License:	LGPLv2+
 URL:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.xz
 
+BuildRequires: intltool
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 0.9.6
 BuildRequires: pkgconfig(telepathy-glib) >= 0.13
-BuildRequires: vala-devel > 0.9.5
-BuildRequires: vala-tools
+BuildRequires: pkgconfig(gconf-2.0) >= 2.31
 BuildRequires: pkgconfig(gee-1.0)
+BuildRequires: pkgconfig(libebook-1.2)
+BuildRequires: pkgconfig(libedataserver-1.2)
+BuildRequires: pkgconfig(libedata-book-1.2) >= 3.1.5
+BuildRequires: pkgconfig(libsocialweb-client)
+BuildRequires: tracker-devel
+BuildRequires: vala-devel
+BuildRequires: vala-tools
 
 Obsoletes: %{name}-i18n
 
@@ -30,9 +42,20 @@ basically automatic.
 %package -n %{libname}
 Group: System/Libraries
 Summary: Aggregates people from multiple sources to create metacontacts
+# old libs left over in the repo
+Obsoletes:	%mklibname %{name} 0
+Obsoletes:	%mklibname %{name} 1
 
 %description -n %{libname}
 This package contains the dynamic libraries from %{name}.
+
+%package -n %{girname}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Requires:	%{libname} = %{version}-%{release}
+
+%description -n %{girname}
+This package contains the Gir-repository typelib for %{name}.
 
 %package -n %{develname}
 Group: Development/C
@@ -40,12 +63,24 @@ Summary: Aggregates people from multiple sources to create metacontacts
 Requires: %{libname} = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
+%description -n %{develname}
+This packages contains the headers and libraries for %{name}.
+
 %prep
 %setup -q
 %apply_patches
 
 %build
-%configure2_5x
+%configure2_5x \
+	--enable-tracker-backend \
+	--enable-libsocialweb-backend=auto \
+	--enable-eds-backend \
+%if %{enable_vala}
+	--enable-vala \
+	--enable-inspect-tool \
+%endif
+	--enable-import-tool
+
 %make
 
 %install
@@ -56,21 +91,23 @@ rm -rf %{buildroot}
 # remove unpackaged files
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
-%description -n %{develname}
-This packages contains the headers and libraries for %{name}.
-
 %files -f %{name}.lang
 %doc AUTHORS README
 %_bindir/folks-import
-%dir %{_libdir}/folks/%dirver/
-%{_libdir}/folks/%dirver/backends
+%dir %{_libdir}/folks/%{dirver}/
+%{_libdir}/folks/%{dirver}/backends
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
+
+%files -n %{girname}
+%{_libdir}/girepository-1.0/Folks-%{gir_major}.typelib
+
 
 %files -n %{develname}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/folks
 %{_datadir}/vala/vapi/folks*
+%{_datadir}/gir-1.0/Folks-%{gir_major}.gir
 
