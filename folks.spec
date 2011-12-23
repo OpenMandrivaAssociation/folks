@@ -10,7 +10,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.6.5
+Version:	0.6.6
 Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
@@ -84,7 +84,6 @@ This packages contains the headers and libraries for %{name}.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %{name}
 
