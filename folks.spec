@@ -17,6 +17,7 @@ License:	LGPLv2+
 URL:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.xz
 
+BuildRequires: glib2.0-common
 BuildRequires: intltool
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 0.9.6
 BuildRequires: pkgconfig(telepathy-glib) >= 0.13
@@ -81,7 +82,7 @@ This packages contains the headers and libraries for %{name}.
 %endif
 	--enable-import-tool
 
-%make
+%make LIBS='-lgmodule-2.0'
 
 %install
 %makeinstall_std
