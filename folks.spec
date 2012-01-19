@@ -1,5 +1,4 @@
-%define _disable_ld_no_undefined 1
-%define dirver 29
+%define dirver 30
 %define major 25
 %define gir_major 0.6
 
@@ -83,7 +82,7 @@ This packages contains the headers and libraries for %{name}.
 %endif
 	--enable-import-tool
 
-%make
+%make LIBS='-lgmodule-2.0'
 
 %install
 %makeinstall_std
