@@ -1,3 +1,4 @@
+%define _disable_ld_no_undefined 1
 %define dirver 29
 %define major 25
 %define gir_major 0.6
@@ -72,7 +73,7 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--enable-tracker-backend \
 	--enable-libsocialweb-backend=auto \
 	--enable-eds-backend \
@@ -82,7 +83,7 @@ This packages contains the headers and libraries for %{name}.
 %endif
 	--enable-import-tool
 
-%make LIBS='-lgmodule-2.0'
+%make
 
 %install
 %makeinstall_std
