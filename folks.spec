@@ -1,4 +1,4 @@
-%define dirver 30
+%define dirver 31
 %define major 25
 %define gir_major 0.6
 
