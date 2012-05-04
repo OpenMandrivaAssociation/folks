@@ -1,6 +1,6 @@
 %define dirver 31
 %define major 25
-%define gir_major 0.6
+%define gir_major 0.7
 
 %define libname		%mklibname %{name} %{major}
 %define girname		%mklibname %{name}-gir %{gir_major}
@@ -10,7 +10,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.6.9
+Version:	0.7.0
 Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
