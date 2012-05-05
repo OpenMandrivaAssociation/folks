@@ -1,6 +1,6 @@
-%define dirver 31
+%define dirver 33
 %define major 25
-%define gir_major 0.7
+%define gir_major 0.6
 
 %define libname		%mklibname %{name} %{major}
 %define girname		%mklibname %{name}-gir %{gir_major}
