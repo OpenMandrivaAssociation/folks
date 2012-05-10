@@ -1,3 +1,5 @@
+%define url_ver	%(echo %{version}|cut -d. -f1,2)
+
 %define dirver 33
 %define major 25
 %define gir_major 0.6
@@ -11,11 +13,11 @@
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.7.0
-Release:	1
+Release:	2
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 URL:		http://telepathy.freedesktop.org/wiki/Folks
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires: glib2.0-common
 BuildRequires: intltool
@@ -30,6 +32,8 @@ BuildRequires: pkgconfig(libsocialweb-client)
 BuildRequires: tracker-devel
 BuildRequires: vala-devel
 BuildRequires: vala-tools
+
+Requires:	evolution-data-server
 
 Obsoletes: %{name}-i18n
 
