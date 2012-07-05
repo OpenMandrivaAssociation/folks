@@ -8,8 +8,8 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.7.0
-Release:	2
+Version:	0.7.2.2
+Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 URL:		http://telepathy.freedesktop.org/wiki/Folks
