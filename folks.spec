@@ -11,7 +11,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.8.0
+Version:	0.9.1
 Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
@@ -23,7 +23,7 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.9.6
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.13
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.31
-BuildRequires:	pkgconfig(gee-1.0)
+BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
