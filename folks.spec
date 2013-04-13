@@ -87,7 +87,7 @@ This packages contains the headers and libraries for %{name}.
 %endif
 	--enable-import-tool
 
-%make LIBS='-lgmodule-2.0'
+%make
 
 %install
 %makeinstall_std
