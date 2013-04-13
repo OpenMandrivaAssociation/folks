@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(zeitgeist-1.0)
 BuildRequires:	tracker-devel
 BuildRequires:	vala-devel
 BuildRequires:	vala-tools
+BuildRequires:	automake
 
 Requires:	evolution-data-server
 
@@ -77,6 +78,7 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
+autoreconf -fiv
 %configure \
 	--enable-tracker-backend \
 	--enable-libsocialweb-backend=auto \
