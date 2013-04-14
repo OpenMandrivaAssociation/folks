@@ -78,7 +78,6 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
-autoreconf -fiv
 %configure \
 	--enable-tracker-backend \
 	--enable-libsocialweb-backend=auto \
@@ -89,7 +88,7 @@ autoreconf -fiv
 %endif
 	--enable-import-tool
 
-%make
+make
 
 %install
 %makeinstall_std
