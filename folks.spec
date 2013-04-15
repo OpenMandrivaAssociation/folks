@@ -12,11 +12,12 @@
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.8.0
-Release:	1
+Release:	2
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 URL:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		folks-0.8.0-autoreconf.patch
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
@@ -76,6 +77,7 @@ This packages contains the headers and libraries for %{name}.
 %prep
 %setup -q
 %apply_patches
+autoreconf -fiv
 
 %build
 %configure \

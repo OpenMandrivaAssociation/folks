@@ -1,0 +1,54 @@
+From 5ffdeac6899925871da0d32aa5643fed5c2cb954 Mon Sep 17 00:00:00 2001
+From: Nuno Araujo <nuno.araujo@russo79.com>
+Date: Mon, 21 Jan 2013 12:00:41 +0000
+Subject: build: Don't use make functions for defining TESTS
+
+Usage of 'make' functions in the definition of TESTS special variable
+can lead to the creation of a corrupt Makefile.in, thus a corrupt Makefile.
+
+Closes: https://bugzilla.gnome.org/show_bug.cgi?id=692122
+---
+(limited to 'tests/telepathy/Makefile.am')
+
+diff --git a/tests/telepathy/Makefile.am b/tests/telepathy/Makefile.am
+index 5058bd4..1ee7beb 100644
+--- a/tests/telepathy/Makefile.am
++++ b/tests/telepathy/Makefile.am
+@@ -44,15 +44,6 @@ AM_VALAFLAGS = \
+ 	-g \
+ 	$(NULL)
+ 
+-noinst_PROGRAMS = \
+-	fake-tp-backend \
+-	persona-store-capabilities \
+-	individual-retrieval \
+-	individual-properties \
+-	individual-zeitgeist \
+-	init \
+-	$(NULL)
+-
+ SESSION_CONF = $(top_builddir)/tests/lib/telepathy/contactlist/session.conf
+ backend_store_key_file=$(srcdir)/data/backend-store-telepathy-only.ini
+ TESTS_ENVIRONMENT = \
+@@ -63,7 +54,18 @@ TESTS_ENVIRONMENT = \
+ 	$(RUN_WITH_PRIVATE_BUS) \
+ 	--config-file=$(SESSION_CONF) \
+ 	--
+-TESTS = $(filter-out fake-tp-backend individual-zeitgeist,$(noinst_PROGRAMS))
++TESTS = \
++	persona-store-capabilities \
++	individual-retrieval \
++	individual-properties \
++	init \
++	$(NULL)
++
++noinst_PROGRAMS = \
++	fake-tp-backend \
++	individual-zeitgeist \
++	$(TESTS) \
++	$(NULL)
+ 
+ fake_tp_backend_SOURCES = \
+ 	fake-tp-backend.vala \
+--
+cgit v0.9.1
