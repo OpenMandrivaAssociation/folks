@@ -1,26 +1,32 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
-
 %define enable_vala 0
+
 %define dirver	37
 %define major	25
 %define gmajor	0.6
-
-%define libname	%mklibname %{name} %{major}
-%define girname	%mklibname %{name}-gir %{gmajor}
-%define devname	%mklibname -d %{name}
+%define libname		%mklibname %{name} %{major}
+%define libeds		%mklibname %{name}-eds %{major}
+%define libsocialweb	%mklibname %{name}-socialweb %{major}
+%define libtelepathy	%mklibname %{name}-telepathy %{major}
+%define libtracker	%mklibname %{name}-tracker %{major}
+%define girname		%mklibname %{name}-gir %{gmajor}
+%define devname		%mklibname -d %{name}
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.8.0
-Release:	2
+Release:	3
 Group:		Networking/Instant messaging
 License:	LGPLv2+
-URL:		http://telepathy.freedesktop.org/wiki/Folks
+Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		folks-0.8.0-autoreconf.patch
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
+BuildRequires:	tracker-devel
+BuildRequires:	vala-tools
+BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.9.6
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.13
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.31
@@ -31,14 +37,8 @@ BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
 BuildRequires:	pkgconfig(libsocialweb-client)
 BuildRequires:	pkgconfig(tracker-sparql-0.14)
 BuildRequires:	pkgconfig(zeitgeist-1.0)
-BuildRequires:	tracker-devel
-BuildRequires:	vala-devel
-BuildRequires:	vala-tools
-BuildRequires:	automake
-
 Requires:	evolution-data-server
-
-Obsoletes: %{name}-i18n
+Obsoletes:	%{name}-i18n
 
 %description
 libfolks is a library that aggregates people from multiple sources (eg,
@@ -50,17 +50,45 @@ basically automatic.
 %package -n %{libname}
 Group:		System/Libraries
 Summary:	Aggregates people from multiple sources to create metacontacts
-# old libs left over in the repo
-Obsoletes:	%{mklibname folks 0} < 0.7.0
-Obsoletes:	%{mklibname folks 1} < 0.7.0
 
 %description -n %{libname}
+This package contains the dynamic libraries from %{name}.
+
+%package -n %{libeds}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Conflicts:	%{_lib}folks25 < 0.8.0-3
+
+%description -n %{libeds}
+This package contains the dynamic libraries from %{name}.
+
+%package -n %{libsocialweb}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Conflicts:	%{_lib}folks25 < 0.8.0-3
+
+%description -n %{libsocialweb}
+This package contains the dynamic libraries from %{name}.
+
+%package -n %{libtelepathy}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Conflicts:	%{_lib}folks25 < 0.8.0-3
+
+%description -n %{libtelepathy}
+This package contains the dynamic libraries from %{name}.
+
+%package -n %{libtracker}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Conflicts:	%{_lib}folks25 < 0.8.0-3
+
+%description -n %{libtracker}
 This package contains the dynamic libraries from %{name}.
 
 %package -n %{girname}
 Group:		System/Libraries
 Summary:	Aggregates people from multiple sources to create metacontacts
-Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 This package contains the Gir-repository typelib for %{name}.
@@ -69,6 +97,11 @@ This package contains the Gir-repository typelib for %{name}.
 Group:		Development/C
 Summary:	Aggregates people from multiple sources to create metacontacts
 Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libeds} = %{version}-%{release}
+Requires:	%{libsocialweb} = %{version}-%{release}
+Requires:	%{libtelepathy} = %{version}-%{release}
+Requires:	%{libtracker} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
@@ -90,7 +123,7 @@ autoreconf -fiv
 %endif
 	--enable-import-tool
 
-make
+%make
 
 %install
 %makeinstall_std
@@ -105,7 +138,19 @@ make
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/libfolks.so.%{major}*
+
+%files -n %{libeds}
+%{_libdir}/libfolks-eds.so.%{major}*
+
+%files -n %{libsocialweb}
+%{_libdir}/libfolks-libsocialweb.so.%{major}*
+
+%files -n %{libtelepathy}
+%{_libdir}/libfolks-telepathy.so.%{major}*
+
+%files -n %{libtracker}
+%{_libdir}/libfolks-tracker.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Folks-%{gmajor}.typelib
