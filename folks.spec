@@ -35,7 +35,6 @@ BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
 BuildRequires:	pkgconfig(libsocialweb-client)
-BuildRequires:	pkgconfig(tracker-sparql-0.14)
 BuildRequires:	pkgconfig(zeitgeist-1.0)
 Requires:	evolution-data-server
 Obsoletes:	%{name}-i18n
