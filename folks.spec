@@ -21,6 +21,7 @@ License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		folks-0.8.0-autoreconf.patch
+Patch1:		folks-0.8.0_tracker-sparcq-0.16.patch
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
