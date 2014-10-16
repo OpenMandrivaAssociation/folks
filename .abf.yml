@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   folks-0.8.0.tar.xz: 0c9dcd4db046e7b7a35cf35679d6107653b750d9
+sources:
+  folks-0.10.0.tar.xz: b17c98d26d6a849071ece1a50cbca98475025086
