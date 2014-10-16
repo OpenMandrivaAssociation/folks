@@ -32,7 +32,7 @@ BuildRequires:	vala-tools
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.9.6
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.13
-BuildRequires:	pkgconfig(gee-1.0)
+BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
