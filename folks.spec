@@ -26,6 +26,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{versi
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
+BuildRequires:	readline-devel
 BuildRequires:	tracker-devel
 BuildRequires:	tracker-vala
 BuildRequires:	vala-tools
