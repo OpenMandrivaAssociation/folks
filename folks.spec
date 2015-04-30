@@ -15,7 +15,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.10.0
+Version:	 0.11.0
 Release:	2
 Group:		Networking/Instant messaging
 License:	LGPLv2+
