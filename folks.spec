@@ -2,7 +2,7 @@
 %define enable_vala 1
 %define _disable_ld_no_undefined 1
 
-%define dirver	42
+%define dirver	43
 %define major	25
 %define gmajor	0.6
 %define libname		%mklibname %{name} %{major}
