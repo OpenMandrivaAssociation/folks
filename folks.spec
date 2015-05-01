@@ -36,7 +36,6 @@ BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
-BuildRequires:	pkgconfig(zeitgeist-1.0)
 Requires:	evolution-data-server
 Obsoletes:	%{name}-i18n
 
@@ -121,7 +120,8 @@ This packages contains the headers and libraries for %{name}.
 	--enable-inspect-tool \
 %endif
 	--enable-import-tool \
-	--disable-fatal-warnings
+	--disable-fatal-warnings \
+	--disable-zeitgeist
 %make
 
 %install
