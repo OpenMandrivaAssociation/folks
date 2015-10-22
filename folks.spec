@@ -22,7 +22,6 @@ Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
-Patch1:		folks-0.11.0-fix_encoding.patch
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
