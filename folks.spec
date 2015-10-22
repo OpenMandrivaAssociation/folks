@@ -1,6 +1,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define enable_vala 1
 %define _disable_ld_no_undefined 1
+%define _disable_rebuild_configure 1
 
 %define dirver	43
 %define major	25
@@ -15,8 +16,8 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	 0.11.0
-Release:	2
+Version:	0.11.0
+Release:	3
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
