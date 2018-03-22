@@ -16,7 +16,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.11.3
+Version:	0.11.4
 Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
@@ -118,6 +118,9 @@ This packages contains the headers and libraries for %{name}.
 %if %{enable_vala}
 	--enable-vala \
 	--enable-inspect-tool \
+%else
+	--disable-vala \
+	--disable-inspect-tool \
 %endif
 	--enable-import-tool \
 	--disable-fatal-warnings \
