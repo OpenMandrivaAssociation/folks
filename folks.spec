@@ -36,6 +36,8 @@ BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
+BuildRequires:	pkgconfig(vapigen)
+BuildRequires:	pkgconfig(ncurses)
 Requires:	evolution-data-server
 Obsoletes:	%{name}-i18n
 
