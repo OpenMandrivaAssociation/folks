@@ -80,13 +80,13 @@ Conflicts:	%{_lib}folks25 < 0.8.0-3
 %description -n %{libtelepathy}
 This package contains the dynamic libraries from %{name}.
 
-%package -n %{libtracker}
-Group:		System/Libraries
-Summary:	Aggregates people from multiple sources to create metacontacts
-Conflicts:	%{_lib}folks25 < 0.8.0-3
-
-%description -n %{libtracker}
-This package contains the dynamic libraries from %{name}.
+#package -n %{libtracker}
+#Group:		System/Libraries
+#Summary:	Aggregates people from multiple sources to create metacontacts
+#Conflicts:	%{_lib}folks25 < 0.8.0-3
+#
+#description -n %{libtracker}
+#This package contains the dynamic libraries from %{name}.
 
 %package -n %{girname}
 Group:		System/Libraries
@@ -154,8 +154,8 @@ This packages contains the headers and libraries for %{name}.
 %files -n %{libtelepathy}
 %{_libdir}/libfolks-telepathy.so.%{major}*
 
-%files -n %{libtracker}
-%{_libdir}/libfolks-tracker.so.%{major}*
+#files -n %{libtracker}
+#{_libdir}/libfolks-tracker.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Folks-%{gmajor}.typelib
