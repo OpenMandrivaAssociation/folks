@@ -102,7 +102,7 @@ Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libdummy} = %{version}-%{release}
 Requires:	%{libeds} = %{version}-%{release}
 Requires:	%{libtelepathy} = %{version}-%{release}
-Requires:	%{libtracker} = %{version}-%{release}
+#Requires:	#{libtracker} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
