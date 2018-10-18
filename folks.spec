@@ -115,8 +115,10 @@ This packages contains the headers and libraries for %{name}.
 
 %build
 %configure \
-	--enable-tracker-backend \
 	--enable-eds-backend \
+	--disable-tracker-backend \
+	--enable-import-tool \
+	--disable-static
 %if %{enable_vala}
 	--enable-vala \
 	--enable-inspect-tool \
