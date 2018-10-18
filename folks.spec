@@ -25,7 +25,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{versi
 
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
-BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(readline)
 BuildRequires:	tracker-devel
 BuildRequires:	tracker-vala
 BuildRequires:	vala-tools
@@ -36,6 +36,8 @@ BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
+BuildRequires:	pkgconfig(vapigen)
+BuildRequires:	pkgconfig(ncurses)
 Requires:	evolution-data-server
 Obsoletes:	%{name}-i18n
 
@@ -78,13 +80,13 @@ Conflicts:	%{_lib}folks25 < 0.8.0-3
 %description -n %{libtelepathy}
 This package contains the dynamic libraries from %{name}.
 
-%package -n %{libtracker}
-Group:		System/Libraries
-Summary:	Aggregates people from multiple sources to create metacontacts
-Conflicts:	%{_lib}folks25 < 0.8.0-3
-
-%description -n %{libtracker}
-This package contains the dynamic libraries from %{name}.
+#package -n %{libtracker}
+#Group:		System/Libraries
+#Summary:	Aggregates people from multiple sources to create metacontacts
+#Conflicts:	%{_lib}folks25 < 0.8.0-3
+#
+#description -n %{libtracker}
+#This package contains the dynamic libraries from %{name}.
 
 %package -n %{girname}
 Group:		System/Libraries
@@ -100,7 +102,7 @@ Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libdummy} = %{version}-%{release}
 Requires:	%{libeds} = %{version}-%{release}
 Requires:	%{libtelepathy} = %{version}-%{release}
-Requires:	%{libtracker} = %{version}-%{release}
+#Requires:	#{libtracker} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
@@ -113,8 +115,8 @@ This packages contains the headers and libraries for %{name}.
 
 %build
 %configure \
-	--enable-tracker-backend \
 	--enable-eds-backend \
+	--disable-tracker-backend \
 %if %{enable_vala}
 	--enable-vala \
 	--enable-inspect-tool \
@@ -152,15 +154,15 @@ This packages contains the headers and libraries for %{name}.
 %files -n %{libtelepathy}
 %{_libdir}/libfolks-telepathy.so.%{major}*
 
-%files -n %{libtracker}
-%{_libdir}/libfolks-tracker.so.%{major}*
+#files -n %{libtracker}
+#{_libdir}/libfolks-tracker.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Folks-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksDummy-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksEds-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksTelepathy-%{gmajor}.typelib
-%{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
+#{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
 
 %files -n %{devname}
 %{_libdir}/*.so
@@ -171,5 +173,5 @@ This packages contains the headers and libraries for %{name}.
 %{_datadir}/gir-1.0/FolksDummy-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksEds-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksTelepathy-%{gmajor}.gir
-%{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
+#{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
 
