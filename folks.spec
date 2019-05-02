@@ -23,11 +23,13 @@ License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	meson
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(readline)
 BuildRequires:	tracker-devel
 BuildRequires:	tracker-vala
+BuildRequires:	vala
 BuildRequires:	vala-tools
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.9.6
@@ -39,6 +41,7 @@ BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(ncurses)
 Requires:	evolution-data-server
+Requires:	tracker-miners
 Obsoletes:	%{name}-i18n
 
 %description
@@ -114,23 +117,17 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
-%configure \
-	--enable-eds-backend \
-	--disable-tracker-backend \
-%if %{enable_vala}
-	--enable-vala \
-	--enable-inspect-tool \
-%else
-	--disable-vala \
-	--disable-inspect-tool \
-%endif
-	--enable-import-tool \
-	--disable-fatal-warnings \
-	--disable-zeitgeist
-%make
+%meson \
+	-Deds_backend=true \
+	-Dinspect_tool=true \
+	-Dimport_tool=true \
+	-Dzeitgeist=true \
+	-Dtracker_backend=true
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
+
 %find_lang %{name}
 
 %files -f %{name}.lang
