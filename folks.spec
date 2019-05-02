@@ -1,5 +1,4 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
-%define enable_vala 1
 %define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
 
@@ -40,6 +39,7 @@ BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(ncurses)
+BuildRequires:	pkgconfig(zeitgeist-2.0)
 Requires:	evolution-data-server
 Requires:	tracker-miners
 Obsoletes:	%{name}-i18n
