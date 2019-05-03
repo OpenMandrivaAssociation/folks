@@ -117,8 +117,8 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %meson \
 	-Deds_backend=true \
 	-Dinspect_tool=true \
@@ -133,12 +133,12 @@ export CXX=g++
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc AUTHORS README
+%doc AUTHORS README.md
 %{_bindir}/folks-import
 %{_bindir}/folks-inspect
-%dir %{_libdir}/folks/%{dirver}/
-%{_libdir}/folks/%{dirver}/backends
-%{_datadir}/GConf/gsettings/folks.convert
+#dir #{_libdir}/folks/%{dirver}/
+#{_libdir}/folks/%{dirver}/backends
+#{_datadir}/GConf/gsettings/folks.convert
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
 
 %files -n %{libname}
