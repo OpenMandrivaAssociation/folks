@@ -117,6 +117,8 @@ This packages contains the headers and libraries for %{name}.
 %apply_patches
 
 %build
+export CC=gcc
+export CXX=g++
 %meson \
 	-Deds_backend=true \
 	-Dinspect_tool=true \
