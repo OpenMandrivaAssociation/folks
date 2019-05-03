@@ -2,7 +2,7 @@
 %define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
 
-%define dirver	43
+%define dirver	44
 %define major	25
 %define gmajor	0.6
 %define libname		%mklibname %{name} %{major}
@@ -83,13 +83,13 @@ Conflicts:	%{_lib}folks25 < 0.8.0-3
 %description -n %{libtelepathy}
 This package contains the dynamic libraries from %{name}.
 
-#package -n %{libtracker}
-#Group:		System/Libraries
-#Summary:	Aggregates people from multiple sources to create metacontacts
-#Conflicts:	%{_lib}folks25 < 0.8.0-3
-#
-#description -n %{libtracker}
-#This package contains the dynamic libraries from %{name}.
+%package -n %{libtracker}
+Group:		System/Libraries
+Summary:	Aggregates people from multiple sources to create metacontacts
+Conflicts:	%{_lib}folks25 < 0.8.0-3
+
+%description -n %{libtracker}
+This package contains the dynamic libraries from %{name}.
 
 %package -n %{girname}
 Group:		System/Libraries
@@ -136,8 +136,8 @@ This packages contains the headers and libraries for %{name}.
 %doc AUTHORS README.md
 %{_bindir}/folks-import
 %{_bindir}/folks-inspect
-#dir #{_libdir}/folks/%{dirver}/
-#{_libdir}/folks/%{dirver}/backends
+%dir %{_libdir}/folks/%{dirver}/
+%{_libdir}/folks/%{dirver}/backends
 #{_datadir}/GConf/gsettings/folks.convert
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
 
@@ -153,15 +153,15 @@ This packages contains the headers and libraries for %{name}.
 %files -n %{libtelepathy}
 %{_libdir}/libfolks-telepathy.so.%{major}*
 
-#files -n %{libtracker}
-#{_libdir}/libfolks-tracker.so.%{major}*
+%files -n %{libtracker}
+%{_libdir}/libfolks-tracker.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Folks-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksDummy-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksEds-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksTelepathy-%{gmajor}.typelib
-#{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
+%{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
 
 %files -n %{devname}
 %{_libdir}/*.so
@@ -172,5 +172,5 @@ This packages contains the headers and libraries for %{name}.
 %{_datadir}/gir-1.0/FolksDummy-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksEds-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksTelepathy-%{gmajor}.gir
-#{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
+%{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
 
