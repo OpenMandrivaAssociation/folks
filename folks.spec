@@ -136,8 +136,8 @@ This packages contains the headers and libraries for %{name}.
 %doc AUTHORS README.md
 %{_bindir}/folks-import
 %{_bindir}/folks-inspect
-%dir %{_libdir}/folks/%{dirver}/
-%{_libdir}/folks/%{dirver}/backends
+#dir #{_libdir}/folks/%{dirver}/
+#{_libdir}/folks/%{dirver}/backends
 #{_datadir}/GConf/gsettings/folks.convert
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
 
