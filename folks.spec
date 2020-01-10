@@ -114,7 +114,7 @@ This packages contains the headers and libraries for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 #export CC=gcc
