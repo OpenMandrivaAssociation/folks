@@ -40,6 +40,7 @@ BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(zeitgeist-2.0)
+BuildRequires:	python3dist(python-dbusmock)
 Requires:	evolution-data-server
 Requires:	tracker-miners
 Obsoletes:	%{name}-i18n
