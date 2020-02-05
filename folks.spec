@@ -141,6 +141,7 @@ This packages contains the headers and libraries for %{name}.
 %{_libdir}/folks/%{dirver}/backends
 #{_datadir}/GConf/gsettings/folks.convert
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
+%{_datadir}/GConf/gsettings/folks.convert
 
 %files -n %{libname}
 %{_libdir}/libfolks.so.%{major}*
