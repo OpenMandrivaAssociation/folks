@@ -2,7 +2,7 @@
 %define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
 
-%define dirver	45
+%define dirver	46
 %define major	25
 %define gmajor	0.6
 %define libname		%mklibname %{name} %{major}
@@ -137,8 +137,8 @@ This packages contains the headers and libraries for %{name}.
 %doc AUTHORS README.md
 %{_bindir}/folks-import
 %{_bindir}/folks-inspect
-#%dir %{_libdir}/folks/%{dirver}/
-#%{_libdir}/folks/%{dirver}/backends
+%dir %{_libdir}/folks/%{dirver}/
+%{_libdir}/folks/%{dirver}/backends
 #{_datadir}/GConf/gsettings/folks.convert
 %{_datadir}/glib-2.0/schemas/org.freedesktop.folks.gschema.xml
 %{_datadir}/GConf/gsettings/folks.convert
