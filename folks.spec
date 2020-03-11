@@ -2,7 +2,7 @@
 %define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
 
-%define dirver	45
+%define dirver	46
 %define major	25
 %define gmajor	0.6
 %define libname		%mklibname %{name} %{major}
@@ -15,7 +15,7 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.13.2
+Version:	0.14.0
 Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
