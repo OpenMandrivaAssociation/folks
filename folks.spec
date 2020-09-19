@@ -118,8 +118,7 @@ This packages contains the headers and libraries for %{name}.
 %autopatch -p1
 
 %build
-#export CC=gcc
-#export CXX=g++
+
 %meson \
 	-Deds_backend=true \
 	-Dinspect_tool=true \
@@ -156,7 +155,7 @@ This packages contains the headers and libraries for %{name}.
 %{_libdir}/libfolks-telepathy.so.%{major}*
 
 %files -n %{libtracker}
-%{_libdir}/libfolks-tracker.so.%{major}*
+#{_libdir}/libfolks-tracker.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Folks-%{gmajor}.typelib
