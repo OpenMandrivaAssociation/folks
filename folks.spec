@@ -26,7 +26,7 @@ BuildRequires:	meson
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(readline)
-BuildRequires:	tracker-devel
+#BuildRequires:	tracker-devel
 BuildRequires:	tracker-vala
 BuildRequires:	vala
 BuildRequires:	vala-tools
@@ -125,7 +125,7 @@ This packages contains the headers and libraries for %{name}.
 	-Dinspect_tool=true \
 	-Dimport_tool=true \
 	-Dzeitgeist=true \
-	-Dtracker_backend=true
+	-Dtracker_backend=false
 %meson_build
 
 %install
