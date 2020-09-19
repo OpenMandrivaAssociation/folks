@@ -162,7 +162,7 @@ This packages contains the headers and libraries for %{name}.
 %{_libdir}/girepository-1.0/FolksDummy-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksEds-%{gmajor}.typelib
 %{_libdir}/girepository-1.0/FolksTelepathy-%{gmajor}.typelib
-%{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
+#{_libdir}/girepository-1.0/FolksTracker-%{gmajor}.typelib
 
 %files -n %{devname}
 %{_libdir}/*.so
@@ -173,5 +173,5 @@ This packages contains the headers and libraries for %{name}.
 %{_datadir}/gir-1.0/FolksDummy-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksEds-%{gmajor}.gir
 %{_datadir}/gir-1.0/FolksTelepathy-%{gmajor}.gir
-%{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
+#{_datadir}/gir-1.0/FolksTracker-%{gmajor}.gir
 
