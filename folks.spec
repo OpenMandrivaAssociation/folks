@@ -3,8 +3,8 @@
 %define _disable_rebuild_configure 1
 %define _disable_lto 1
 
-%define dirver	46
 %define major	26
+%define dirver	%{major}
 %define gmajor	0.7
 %define libname		%mklibname %{name} %{major}
 %define libdummy	%mklibname %{name}-dummy %{major}
@@ -22,6 +22,7 @@ Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		folks-0.15.2-compile.patch
 
 BuildRequires:	meson
 BuildRequires:	glib2.0-common
@@ -115,8 +116,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 This packages contains the headers and libraries for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 
