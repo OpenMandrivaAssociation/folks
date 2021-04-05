@@ -3,8 +3,8 @@
 %define _disable_rebuild_configure 1
 
 %define dirver	46
-%define major	25
-%define gmajor	0.6
+%define major	26
+%define gmajor	0.7
 %define libname		%mklibname %{name} %{major}
 %define libdummy	%mklibname %{name}-dummy %{major}
 %define libeds		%mklibname %{name}-eds %{major}
@@ -15,8 +15,8 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.14.0
-Release:	3
+Version:	0.15.2
+Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
