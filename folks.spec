@@ -39,6 +39,8 @@ BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(libebook-1.2)
 BuildRequires:	pkgconfig(libedataserver-1.2)
 BuildRequires:	pkgconfig(libedata-book-1.2) >= 3.1.5
+BuildRequires:	pkgconfig(libgdata)
+BuildRequires:	typelib(GData)
 BuildRequires:	pkgconfig(vapigen)
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(zeitgeist-2.0)
