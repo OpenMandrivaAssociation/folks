@@ -22,7 +22,6 @@ Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		folks-0.15.2-compile.patch
 
 BuildRequires:	meson
 BuildRequires:	glib2.0-common
