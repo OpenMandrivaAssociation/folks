@@ -125,8 +125,7 @@ This packages contains the headers and libraries for %{name}.
 	-Deds_backend=true \
 	-Dinspect_tool=true \
 	-Dimport_tool=true \
-	-Dzeitgeist=true \
-	-Dtracker_backend=false
+	-Dzeitgeist=true
 %meson_build
 
 %install
