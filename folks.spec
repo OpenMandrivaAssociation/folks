@@ -120,6 +120,7 @@ This packages contains the headers and libraries for %{name}.
 %autosetup -p1
 
 %build
+# Switched to GCC due https://gitlab.gnome.org/GNOME/folks/-/issues/136
 export CC=gcc
 export CXX=g++
 %meson \
