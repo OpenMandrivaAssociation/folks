@@ -16,8 +16,8 @@
 
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
-Version:	0.15.5
-Release:	4
+Version:	0.15.6
+Release:	1
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		http://telepathy.freedesktop.org/wiki/Folks
@@ -120,7 +120,9 @@ This packages contains the headers and libraries for %{name}.
 %autosetup -p1
 
 %build
-
+# Switched to GCC due https://gitlab.gnome.org/GNOME/folks/-/issues/136
+export CC=gcc
+export CXX=g++
 %meson \
 	-Deds_backend=true \
 	-Dinspect_tool=true \
