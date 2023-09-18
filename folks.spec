@@ -17,11 +17,11 @@
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.15.6
-Release:	2
+Release:	3
 Group:		Networking/Instant messaging
 License:	LGPLv2+
-Url:		http://telepathy.freedesktop.org/wiki/Folks
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://telepathy.freedesktop.org/wiki/Folks
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	meson
 BuildRequires:	glib2.0-common
