@@ -23,6 +23,10 @@ License:	LGPLv2+
 Url:		https://telepathy.freedesktop.org/wiki/Folks
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/folks/%{url_ver}/%{name}-%{version}.tar.xz
 
+# Public service announcement: Whatever it is that the gnomes are smoking, it's
+# dangerous for your brain.
+Patch0:		folks-what-are-those-drunk-monkeys-smoking.patch
+
 BuildRequires:	meson
 BuildRequires:	glib2.0-common
 BuildRequires:	intltool

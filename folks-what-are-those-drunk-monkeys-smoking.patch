@@ -1,0 +1,48 @@
+diff -up folks-0.15.6/backends/dummy/lib/meson.build.omv~ folks-0.15.6/backends/dummy/lib/meson.build
+--- folks-0.15.6/backends/dummy/lib/meson.build.omv~	2023-09-21 14:11:01.388072659 +0200
++++ folks-0.15.6/backends/dummy/lib/meson.build	2023-09-21 14:11:39.618993666 +0200
+@@ -58,7 +58,7 @@ custom_target(dummy_backendlib_gir_name
+   command: [ g_ir_compiler,
+     '--includedir', libfolks_gir_include_dir,
+     '--output', '@OUTPUT@',
+-    '--shared-library', 'lib' + dummy_backendlib.name(),
++    '--shared-library', 'lib' + dummy_backendlib.name() + '.so.26',
+     meson.current_build_dir() / (dummy_backendlib_gir_name + '.gir')
+   ],
+   output: dummy_backendlib_gir_name + '.typelib',
+diff -up folks-0.15.6/backends/eds/lib/meson.build.omv~ folks-0.15.6/backends/eds/lib/meson.build
+--- folks-0.15.6/backends/eds/lib/meson.build.omv~	2023-09-21 14:19:12.108653874 +0200
++++ folks-0.15.6/backends/eds/lib/meson.build	2023-09-21 14:19:30.949131405 +0200
+@@ -75,7 +75,7 @@ custom_target(eds_backendlib_gir_name +
+   command: [ g_ir_compiler,
+     '--includedir', libfolks_gir_include_dir,
+     '--output', '@OUTPUT@',
+-    '--shared-library', 'lib' + eds_backendlib.name(),
++    '--shared-library', 'lib' + eds_backendlib.name() + '.so.26',
+     meson.current_build_dir() / (eds_backendlib_gir_name + '.gir')
+   ],
+   output: eds_backendlib_gir_name + '.typelib',
+diff -up folks-0.15.6/backends/telepathy/lib/meson.build.omv~ folks-0.15.6/backends/telepathy/lib/meson.build
+--- folks-0.15.6/backends/telepathy/lib/meson.build.omv~	2023-09-21 14:18:46.492003613 +0200
++++ folks-0.15.6/backends/telepathy/lib/meson.build	2023-09-21 14:19:03.152426658 +0200
+@@ -151,7 +151,7 @@ custom_target(telepathy_backendlib_gir_n
+   command: [ g_ir_compiler,
+     '--includedir', libfolks_gir_include_dir,
+     '--output', '@OUTPUT@',
+-    '--shared-library', 'lib' + telepathy_backendlib.name(),
++    '--shared-library', 'lib' + telepathy_backendlib.name() + '.so.26',
+     meson.current_build_dir() / (telepathy_backendlib_gir_name + '.gir')
+   ],
+   output: telepathy_backendlib_gir_name + '.typelib',
+diff -up folks-0.15.6/folks/meson.build.omv~ folks-0.15.6/folks/meson.build
+--- folks-0.15.6/folks/meson.build.omv~	2023-09-21 14:18:10.261081877 +0200
++++ folks-0.15.6/folks/meson.build	2023-09-21 14:18:40.108841398 +0200
+@@ -116,7 +116,7 @@ install_data('folks.deps',
+ custom_target(libfolks_gir_name + '.typelib',
+   command: [ g_ir_compiler,
+     '--output', '@OUTPUT@',
+-    '--shared-library', 'lib' + libfolks_lib.name(),
++    '--shared-library', 'lib' + libfolks_lib.name() + '.so.26',
+     meson.current_build_dir() / (libfolks_gir_name + '.gir')
+   ],
+   output: libfolks_gir_name + '.typelib',
