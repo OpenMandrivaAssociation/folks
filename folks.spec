@@ -17,7 +17,7 @@
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.15.9
-Release:	2
+Release:	3
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		https://telepathy.freedesktop.org/wiki/Folks
@@ -32,7 +32,7 @@ BuildRequires:	glib2.0-common
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(readline)
 #BuildRequires:	tracker-devel
-BuildRequires:	tracker-vala
+BuildRequires:	tinysparql-vala
 BuildRequires:	vala
 BuildRequires:	vala-tools
 BuildRequires:	vala-devel
@@ -49,7 +49,7 @@ BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	pkgconfig(zeitgeist-2.0)
 BuildRequires:	python3dist(python-dbusmock)
 Requires:	evolution-data-server
-Requires:	tracker-miners
+Requires:	localsearch
 Obsoletes:	%{name}-i18n
 
 %description
