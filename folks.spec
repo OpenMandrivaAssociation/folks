@@ -17,7 +17,7 @@
 Summary:	Aggregates people from multiple sources to create metacontacts
 Name:		folks
 Version:	0.15.12
-Release:	3
+Release:	4
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 Url:		https://gitlab.gnome.org/GNOME/folks
